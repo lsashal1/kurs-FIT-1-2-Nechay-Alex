@@ -1,0 +1,226 @@
+header{
+    background: linear-gradient( to right, rgb(51, 134, 223), black,);
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+body, header{
+    font-size: 1.6vw;
+    /*background: linear-gradient( to right, rgb(241, 205, 211),rgb(243, 174, 96));*/
+    background-image:url("./background.svg") ;
+}
+figure img{
+    opacity: .78;
+}
+span{
+    display: none;
+    margin-left: 20%;
+}
+footer{
+    border-top: 1px solid rgb(241, 205, 211);
+}
+.box{
+    margin: 10px 10px 10px 10px;
+    flex:1;
+}
+.containerNotMain .box{
+    margin: 10px 10px 10px 10px;
+    flex:0.6;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 5;
+}
+.kostyle{
+    margin-left: -9.2vw;
+}
+.containerNotMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-grow: 5;
+}
+.containerNotMain div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 2;
+}
+.headerContent{
+    height: max-content;
+    text-align: center;
+    width: 100%;
+    display:none;
+    justify-content: center;
+}
+
+.textContent{
+    flex: 1;
+}
+.containerNotMain img{
+    width:90%;
+}
+.hideBlock{
+    justify-content: center;
+}
+img{
+    width:76%;
+    background-color:white;
+}
+
+@media (min-height: 100vw){
+    @media (max-width: 500px){
+        img{
+            width:90%;
+        }
+        *{
+            font-size: 5vw;
+        }
+    }
+    body, .textContent, header, footer{
+        font-size:3vw;
+    }
+    .hideBlock{
+        display: none;
+        text-align: center;
+    }
+    nav:hover .hideBlock{
+        display: flex;
+    }
+    .container{
+        flex-direction: column;
+        text-align: center;
+    }
+    .containerNotMain{
+        flex-direction: column;
+        text-align: center;
+    }
+    .containerNotMain div{
+        flex-direction: column;
+    }
+    span{
+        display: inline;
+    }
+    img{
+        flex:0.5;
+    }
+    .headerContent{
+        display:flex;
+    }
+}
+@media screen and (max-width: 1280px){
+    img{
+        max-width: 100%;
+    }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+* {
+	font-family: Raleway, sans-serif;
+	color: black;
+}
+
+p {
+	margin: 0;
+}
+
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgba(168, 239, 255, 1);
+	--c2: rgba(168, 239, 255, 0.1);
+}
+
+.wrapper {
+	min-width: min(40rem, 100%);
+}
+
+.box1 {
+	border: 0.35rem solid;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+    margin: 0.6rem ;
+    padding: 0.66vw;
+    box-shadow: 0.7vw 0.5vw 0.5vw black;
+}
+
+.box:nth-child(2) {
+	border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+	animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
+}
+.box1:hover{
+    text-decoration:underline;
+    color:rgb(207, 220, 244);
+}
+@keyframes click{
+    0%{
+        box-shadow: 0.7vw 0.5vw 0.5vw black;
+    }
+    100%{
+        box-shadow: 0.05vw 0.05vw 0.05vw black;
+
+    }
+}
+.box1:active{
+    animation: click 0.5s linear;
+}
+img:hover{
+    transform:scale(1.05);
+}
